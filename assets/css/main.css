@@ -311,14 +311,16 @@ a {
 }
 
 .services-img {
-  margin: 0px 0px 45px 0px;
-}
-
-.services-img img {
-  max-width: 100%;
+  flex: 0 0 auto;
+  padding: 53.286% 0px 0px 0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0px 0px 40px 0px;
 }
 
 .services-subtitle {
+  flex: 0 0 auto;
   font-weight: 400;
   font-size: 1.875rem;
   position: relative;
@@ -338,6 +340,59 @@ a {
 .services-text {
   flex: 1 1 auto;
   line-height: 1.2;
+}
+
+.features {
+  padding: 4.686% 0px 4.1% 0px;
+  background-color: #f4f4f4;
+}
+
+.features-content {
+  display: flex;
+}
+
+.features-content > * {
+  flex: 1 1 25%;
+}
+
+.features .item {
+  padding: 0px 2% 0px 2%;
+}
+
+.features .item:first-child {
+  padding: 0px 2% 0px 0px;
+}
+
+.features .item:last-child {
+  padding: 0px 0px 0px 2%;
+}
+
+.features .item-content {
+  text-align: center;
+}
+
+.features .item-icon {
+  margin: 0px 0px 30px 0px;
+}
+
+.features .item-icon img {
+  max-height: 70px;
+  max-width: 100%;
+}
+
+.features .item-title {
+  min-height: 36px;
+  margin: 0px 0px 15px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.features .item-text {
+  font-size: 0.875rem;
+}
+
+.features .item-text p {
+  margin: 0px 0px 7px 0px;
 }
 
 .call .container-content {
