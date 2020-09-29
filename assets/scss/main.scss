@@ -8,6 +8,12 @@ $greyish-color: #f4f4f4;
 $light-color: #ffffff;
 $primary-color: #ff9900;
 
+$greyfont-color: #cfcdcd;
+
+@mixin transition-default {
+	transition: all 0.3s ease-in-out;
+}
+
 //null
 *,
 *::before,
@@ -36,8 +42,22 @@ a {
 	text-align: center;
 	text-transform: uppercase;
 	border-radius: 5px;
-	background-color: $primary-color;
+	background-color: $primary-color; /*fallback*/
+	background-image: linear-gradient(
+		to right,
+		$light-color 0%,
+		$light-color 50%,
+		$primary-color 50%,
+		$primary-color 100%
+	);
 	color: $dark-color;
+	background-size: 200% 100%;
+	background-repeat: no-repeat;
+	background-position: 100% 0;
+	transition: color 0.3s ease-in-out, background-position 0.3s ease-in-out;
+	&:hover {
+		background-position: 0 0;
+	}
 }
 
 .container-content {
@@ -46,6 +66,32 @@ a {
 	margin: 0 auto;
 }
 
+.process {
+	img {
+		margin: 0px 0px 5px 0px;
+	}
+	&-sings {
+		display: flex;
+		font-size: 0.85125rem;
+		letter-spacing: 1px;
+
+		& div:nth-child(1) {
+			flex: 0 0 38%;
+		}
+		& div:nth-child(2) {
+			flex: 0 0 41%;
+		}
+		& div:nth-child(3) {
+			flex: 0 0 21%;
+		}
+	}
+}
+
+.title {
+	font-size: 3.375rem;
+	text-transform: uppercase;
+	font-weight: 400;
+}
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -173,6 +219,7 @@ a {
 				width: 100%;
 				background-color: $primary-color;
 				opacity: 0;
+				@include transition-default();
 			}
 			&:hover:after {
 				opacity: 1;
@@ -181,6 +228,119 @@ a {
 	}
 	&-icon {
 		display: none;
+	}
+}
+
+.hero {
+	// padding: 130px 0px 121px 0px;
+	padding: 9.517% 0px 8.858% 0px; /*1366*/
+	background: url("../img/hero-bg.jpg") no-repeat center center/ cover;
+
+	h1 {
+		color: $light-color;
+		font-size: 3rem;
+		// max-width: 713px;
+		max-width: 62%;
+		// margin: 0px 0px 51px 0px;
+		margin: 0px 0px 4.435% 0px;
+	}
+
+	&-description {
+		display: flex;
+		margin: 0px 0px 45px 0px;
+	}
+	&-list {
+		list-style-type: square;
+		margin: 0px 113px 0px 17px;
+
+		li {
+			color: $primary-color;
+			line-height: 2.2;
+			span {
+				color: $greyfont-color;
+				letter-spacing: 1px;
+			}
+		}
+	}
+
+	.process {
+		margin: 5px 0px 0px 0px;
+		img {
+			max-width: 290px;
+		}
+
+		&-sings {
+			max-width: 290px;
+			color: $greyfont-color;
+		}
+	}
+
+	.btn {
+		max-width: 328px;
+		padding: 16px 0px 16px 0px;
+	}
+}
+
+.services {
+	// padding: 136px 0px 120px 0px; /*1366*/
+	padding: 9.957% 0px 8.785% 0px; /*1366*/
+
+	.title {
+		// margin: 0px 0px 85px 0px;
+		margin: 0px 0px 7.392% 0px;
+		span {
+			color: $greyfont-color;
+		}
+	}
+
+	&-body {
+		display: flex;
+
+		& > * {
+			flex: 1 1 50%;
+		}
+	}
+
+	&-item {
+		display: flex;
+		flex-direction: column;
+
+		&:first-child {
+			padding: 0px 12px 0px 0px;
+		}
+		&:last-child {
+			padding: 0px 0px 0px 12px;
+		}
+	}
+
+	&-img {
+		margin: 0px 0px 45px 0px;
+		img {
+			// display: block;
+			max-width: 100%;
+		}
+	}
+
+	&-subtitle {
+		font-weight: 400;
+		font-size: 1.875rem;
+		// line-height: 1.5;
+		position: relative;
+		margin: 0px 0px 33px 0px;
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -11px;
+			left: 2px;
+			height: 2px;
+			width: 70px;
+			background-color: $primary-color;
+		}
+	}
+
+	&-text {
+		flex: 1 1 auto;
+		line-height: 1.2;
 	}
 }
 
@@ -444,13 +604,18 @@ a {
 	}
 	&-menu {
 		color: $dark-color;
-		font-weight: 100;
+
 		li {
 			margin: 0px 0px 16px 0px;
 			text-transform: uppercase;
 		}
 		a {
 			color: inherit;
+			font-weight: 100;
+
+			&:hover {
+				font-weight: bold;
+			}
 		}
 	}
 	&-policy {
@@ -461,6 +626,11 @@ a {
 		}
 		a {
 			color: inherit;
+			font-weight: 100;
+
+			&:hover {
+				font-weight: bold;
+			}
 		}
 	}
 }
