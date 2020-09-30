@@ -382,7 +382,7 @@ a {
 
 .features .item-title {
   min-height: 36px;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 12px 0px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -393,6 +393,88 @@ a {
 
 .features .item-text p {
   margin: 0px 0px 7px 0px;
+}
+
+.about {
+  padding: 10.249% 0px 10.615% 0px;
+  background: url("../img/about-bg.jpg") no-repeat top -30% center/cover;
+}
+
+.about .title {
+  margin: 0px 0px 5.653% 0px;
+}
+
+.about a {
+  text-decoration: underline;
+  color: #996633;
+  font-weight: bold;
+}
+
+.about img {
+  max-width: 100%;
+}
+
+.about p {
+  margin: 0px 0px 20px 0px;
+  line-height: 1.2;
+}
+
+.about strong {
+  font-weight: bold;
+}
+
+.about-body {
+  display: flex;
+}
+
+.about-text {
+  flex: 0 1 68%;
+  align-self: center;
+  padding: 0px 13px 0px 0px;
+}
+
+.about-docs {
+  flex: 0 1 32%;
+}
+
+.about-slider {
+  /* slick slider width fix */
+  min-width: 100%;
+  width: 0;
+}
+
+.about-slider .slick-track {
+  display: flex !important;
+}
+
+.about-slider .slick-slide {
+  height: inherit !important;
+}
+
+.about-slide {
+  outline: none;
+  margin: 0px 20px 20px 20px;
+  display: block;
+  box-shadow: 0 5px 35px -12px rgba(0, 0, 0, 0.25);
+}
+
+.about-controls {
+  display: flex;
+  justify-content: center;
+  color: #999999;
+  font-weight: bold;
+}
+
+.about-controls button {
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.about-controls .pageinfo {
+  margin: 0px 5px 0px 5px;
 }
 
 .call .container-content {
