@@ -84,6 +84,7 @@ a {
 }
 
 .title {
+  letter-spacing: 2px;
   font-size: 3.375rem;
   text-transform: uppercase;
   font-weight: 400;
@@ -397,7 +398,7 @@ a {
 
 .about {
   padding: 10.249% 0px 10.615% 0px;
-  background: url("../img/about-bg.jpg") no-repeat top -30% center/cover;
+  background: url("../img/about-bg.jpg") no-repeat bottom center/cover;
 }
 
 .about .title {
@@ -477,6 +478,80 @@ a {
   margin: 0px 5px 0px 5px;
 }
 
+.projects {
+  margin: -4.539% 0px 0px 0px;
+  padding: 0px 0px 10.323% 0px;
+}
+
+.projects .title {
+  margin: 0px 0px 9.131% 0px;
+}
+
+.projects-slider {
+  margin: 0px -12.5px;
+}
+
+.projects-slider .slick-track {
+  display: flex !important;
+}
+
+.projects-slider .slick-slide {
+  height: inherit !important;
+}
+
+.projects-slider .slick-prev {
+  left: -38px;
+}
+
+.projects-slider .slick-prev:before,
+.projects-slider .slick-next:before {
+  opacity: 0;
+  color: #e1e1e1;
+  font-size: 2rem;
+}
+
+.projects-slider:hover .slick-prev:before,
+.projects-slider:hover .slick-next:before, .projects-slider:focus .slick-prev:before,
+.projects-slider:focus .slick-next:before {
+  opacity: 1;
+}
+
+.projects-slide {
+  background-color: #f4f4f4;
+  margin: 0 12.5px 0px 12.5px;
+  outline: none;
+}
+
+.projects-slide .item-img {
+  flex: 0 0 auto;
+  max-width: 100%;
+  padding: 128.767% 0px 0px 0px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.projects-slide .item-text {
+  height: 100%;
+  flex: 1 0 auto;
+  padding: 28px 10px 28px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-slide .item-title {
+  flex: 0 0 auto;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0px 0px 17px 0px;
+}
+
+.projects-slide .item-description {
+  flex: 1 0 auto;
+  line-height: 1.3;
+}
+
 .call .container-content {
   padding: 0px 0px 0px 0px;
 }
@@ -554,27 +629,14 @@ a {
   font-size: 0.875rem;
 }
 
-.footer .partners {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.footer .partners-slide {
+  margin: 0 12.5px 0px 12.5px;
+  outline: none;
 }
 
 .footer .partners img {
-  display: block;
+  margin: 0 auto;
   max-width: 100%;
-}
-
-.footer .partners-column {
-  margin: 0px 4% 0px 4%;
-}
-
-.footer .partners-column:nth-child(1) {
-  margin: 0px 4% 0px 0;
-}
-
-.footer .partners-column:nth-child(5) {
-  margin: 0px 0px 0px 4%;
 }
 
 .connection-column:first-child {
