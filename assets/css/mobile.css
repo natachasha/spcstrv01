@@ -1,1 +1,7 @@
-/* No CSS *//*# sourceMappingURL=mobile.css.map */
+@media (max-width: 1440px) {
+  .container-content {
+    max-width: 1200px;
+    padding: 0 25px;
+  }
+}
+/*# sourceMappingURL=mobile.css.map */

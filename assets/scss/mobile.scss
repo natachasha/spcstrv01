@@ -1,0 +1,9 @@
+$widthContainer1366: 1200;
+$paddingContainer1366: 25;
+
+@media (max-width: 1440px) {
+	.container-content {
+		max-width: $widthContainer1366 + px;
+		padding: 0 $paddingContainer1366 + px;
+	}
+}

@@ -1,5 +1,11 @@
 @import "fonts";
 
+// $widthContainer1366: 1200;
+// $paddingContainer1366: 25;
+
+$widthContainer2560: 1410;
+$paddingContainer2560: 30;
+
 $widthContainer1366: 1200;
 $paddingContainer1366: 25;
 
@@ -63,8 +69,8 @@ a {
 }
 
 .container-content {
-	max-width: $widthContainer1366 + px;
-	padding: 0 $paddingContainer1366 + px;
+	max-width: $widthContainer2560 + px;
+	padding: 0 $paddingContainer2560 + px;
 	margin: 0 auto;
 }
 
@@ -76,6 +82,7 @@ a {
 		display: flex;
 		font-size: 0.85125rem;
 		letter-spacing: 1px;
+		// font-family: $robotoFont;
 
 		& div:nth-child(1) {
 			flex: 0 0 38%;
@@ -356,20 +363,24 @@ a {
 
 	&-content {
 		display: flex;
-
+		flex-flow: row wrap;
+		justify-content: space-between;
 		& > * {
-			flex: 1 1 25%;
+			// flex: 1 1 25%;
+			width: calc((100% - (23px * 6)) / 4);
+			// width: calc((100% - 100px) / 4);
 		}
 	}
 
 	.item {
-		padding: 0px 2% 0px 2%;
+		// padding: 0px 2% 0px 2%;
+		// margin: 0px 2% 0px 2%;
 
 		&:first-child {
-			padding: 0px 2% 0px 0px;
+			// padding: 0px 2% 0px 0px;
 		}
 		&:last-child {
-			padding: 0px 0px 0px 2%;
+			// padding: 0px 0px 0px 2%;
 		}
 
 		&-content {
@@ -384,6 +395,9 @@ a {
 			}
 		}
 		&-title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			min-height: 36px;
 			margin: 0px 0px 12px 0px;
 			text-transform: uppercase;
@@ -602,7 +616,7 @@ a {
 .footer {
 	padding: 102px 0px 75px 0px;
 	padding: 7.468% 0px 75px 0px; /*1366*/
-	background: url("../img/footer-bg.png") no-repeat center 72% / contain;
+	background: url("../img/footer-bg.jpg") no-repeat center 72% / contain;
 
 	.container-content {
 		padding: 0px 0px 0px 0px;
@@ -677,7 +691,7 @@ a {
 		}
 	}
 
-	&-process {
+	.process {
 		h5 {
 			// font-family: $robotoFont;
 			font-size: 0.85125rem;
@@ -689,24 +703,9 @@ a {
 
 		img {
 			max-width: 302px;
-			margin: 0px 0px 5px 0px;
 		}
-	}
-	&-sings {
-		display: flex;
-		max-width: 302px;
-		letter-spacing: 1px;
-		// font-family: $robotoFont;
-		font-size: 0.85125rem;
-
-		& div:nth-child(1) {
-			flex: 0 0 38%;
-		}
-		& div:nth-child(2) {
-			flex: 0 0 41%;
-		}
-		& div:nth-child(3) {
-			flex: 0 0 21%;
+		&-sings {
+			max-width: 302px;
 		}
 	}
 
