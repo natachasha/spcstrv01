@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "HelveticaNeueCyr";
-  src: url("../fonts/HelveticaNeueCyr-Roman.eot");
-  src: url("../fonts/HelveticaNeueCyr-Roman.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeueCyr-Roman.ttf") format("truetype"), url("../fonts/HelveticaNeueCyr-Roman.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Roman.woff2") format("woff2");
+  font-family: "Arimo";
+  src: url("../fonts/Arimo-Regular.eot");
+  src: url("../fonts/Arimo-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Arimo-Regular.ttf") format("truetype"), url("../fonts/Arimo-Regular.woff") format("woff"), url("../fonts/Arimo-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "HelveticaNeueCyr";
-  src: url("../fonts/HelveticaNeueCyr-Bold.eot");
-  src: url("../fonts/HelveticaNeueCyr-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeueCyr-Bold.ttf") format("truetype"), url("../fonts/HelveticaNeueCyr-Bold.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Bold.woff2") format("woff2");
+  font-family: "Arimo";
+  src: url("../fonts/Arimo-Bold.eot");
+  src: url("../fonts/Arimo-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Arimo-Bold.ttf") format("truetype"), url("../fonts/Arimo-Bold.woff") format("woff"), url("../fonts/Arimo-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
 }
@@ -25,7 +25,7 @@
 
 html,
 body {
-  font-family: "HelveticaNeueCyr", sans-serif;
+  font-family: "Arimo";
   font-size: 100%;
   height: 100%;
 }
@@ -35,6 +35,7 @@ a {
 }
 
 .btn {
+  cursor: pointer;
   display: block;
   letter-spacing: 1px;
   font-weight: bold;
@@ -53,6 +54,10 @@ a {
 
 .btn:hover {
   background-position: 0 0;
+}
+
+.btn:disabled {
+  color: #cfcdcd;
 }
 
 .container-content {
@@ -251,7 +256,11 @@ a {
 
 .hero-list li {
   color: #ff9900;
-  line-height: 2.2;
+  margin: 17px 0px 17px 0px;
+}
+
+.hero-list li:last-child {
+  margin: 17px 0px 0px 0px;
 }
 
 .hero-list li span {
@@ -533,6 +542,7 @@ a {
 }
 
 .projects-slide .item-title {
+  min-height: 52px;
   flex: 0 0 auto;
   font-weight: bold;
   font-size: 1.25rem;
@@ -574,6 +584,10 @@ a {
 .call-column:last-child p {
   margin: 0px 0px 18px -15px;
   font-size: 1.875rem;
+}
+
+.call-column:last-child p a {
+  color: #000000;
 }
 
 .call-column:last-child a:last-of-type {
@@ -777,5 +791,170 @@ a {
 
 .connection-policy a:hover {
   font-weight: bold;
+}
+
+.contacts-top {
+  padding: 6.021% 0px 2.041% 0px;
+  /*1960 */
+  background: url("../img/contacts-bg.jpg") left center/cover;
+}
+
+.contacts-top h1 {
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.contacts-top h1:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -14px;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.contacts-bottom {
+  padding: 6.225% 0px 6.378% 0px;
+  /*1960 */
+}
+
+.contacts-content {
+  display: flex;
+}
+
+.contacts-info {
+  flex: 0 1 57.408%;
+  padding: 0px 14% 0px 0px;
+}
+
+.contacts-info a {
+  color: #000000;
+}
+
+.contacts-info h3 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin: 0px 0px 18px 0px;
+}
+
+.contacts-info .contact {
+  max-width: 68.61%;
+  /*583*/
+  margin: 0px 0px 55px 0px;
+}
+
+.contacts-info .contact p {
+  margin: 0px 0px 18px 0px;
+}
+
+.contacts-info .schedule {
+  padding: 0px 0px 0px 25px;
+  margin: 0px 0px 50px 0px;
+  position: relative;
+}
+
+.contacts-info .schedule:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 23px;
+  width: 23px;
+  background: url("../img/footer-contact-icons.png") no-repeat;
+  background-position: 0px -140px;
+}
+
+.contacts-form {
+  flex: 0 1 42.592%;
+}
+
+.contacts .feedback-form {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  margin: 0px auto 0px auto;
+  z-index: 1;
+}
+
+.contacts .form-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.contacts .form-group::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: width 0.5s ease-in-out;
+}
+
+.contacts .form-group.input-active::before {
+  width: 100%;
+}
+
+.contacts .form-group label {
+  display: block;
+  transform: translateY(0);
+  transform-origin: 0 100%;
+  transition: transform 0.2s ease-in-out;
+  font-size: 1rem;
+}
+
+.contacts .form-group label.input-active {
+  transform: scale(0.75) translateY(-2rem);
+}
+
+.contacts input,
+.contacts textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.contacts textarea {
+  max-width: 574.98px;
+}
+
+.contacts .btn {
+  padding: 18px 28px 18px 28px;
+  width: 100%;
+  max-width: 390px;
+}
+
+.contacts .kappa {
+  width: 307px;
+  padding: 80px 0px 0px 0px;
+  margin: 0px 0px 48px 0px;
+  background: url("../img/contacts-capcha.jpg") no-repeat center center/contain;
+}
+
+.map {
+  padding: 0px 0px 9.439% 0px;
+  /*1960 */
+}
+
+.map .container-content {
+  padding: 0px 0px 0px 0px;
+}
+
+.map-content {
+  padding: 470px 0px 0px 0px;
+  width: 100%;
+  background: url("../img/map.jpg") no-repeat center center/contain;
 }
 /*# sourceMappingURL=main.css.map */

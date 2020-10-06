@@ -1,7 +1,7 @@
 // +++++++++++++++++++++++++++++ About Slider ++++++++++++++++++++++++++
 var $status = $(".pageinfo");
 var $slickElement = $(".about-slider");
-$slickElement.on("init reInit beforeChange", function (event, slick, currentSlide, nextSlide) {
+$slickElement.on("init reInit afterChange", function (event, slick, currentSlide, nextSlide) {
 	//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
 	// if (!slick.$dots) {
 	// 	return;
@@ -36,7 +36,10 @@ const sliderAboutObserver = new IntersectionObserver(function (entries, sliderAb
 	});
 }, sliderAboutOptions);
 
-sliderAboutObserver.observe(sliderAbout);
+if (sliderAbout) {
+	sliderAboutObserver.observe(sliderAbout);
+}
+
 // +++++++++++++++++++++++++++++++ Project Slider ++++++++++++++++++++++++++++++++++++
 $(".projects-slider").slick({
 	arrows: true,
@@ -45,7 +48,7 @@ $(".projects-slider").slick({
 	dots: false,
 	easing: "ease-in-out",
 	infinite: true,
-	pauseOnHover: false,
+	// pauseOnHover: false,
 	slidesToShow: 3,
 	slidesToScroll: 1,
 	// responsive: [
@@ -78,4 +81,24 @@ $(".partners-slider").slick({
 	pauseOnHover: false,
 	slidesToShow: 5,
 	slidesToScroll: 2,
+});
+
+window.addEventListener("load", function () {
+	// ------ inputs animation ---------------
+
+	let feedbackForm = document.querySelector(".feedback-form");
+
+	if (feedbackForm) {
+		let inputs = document.querySelectorAll(".feedback-form .text-input");
+
+		inputs.forEach(function (input) {
+			input.addEventListener("focus", toggleActiveFormGroup);
+			input.addEventListener("blur", toggleActiveFormGroup);
+		});
+	}
+
+	function toggleActiveFormGroup(e) {
+		e.target.parentNode.classList.toggle("input-active");
+		e.target.previousElementSibling.classList.toggle("input-active");
+	}
 });
