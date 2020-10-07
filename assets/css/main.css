@@ -886,8 +886,16 @@ a {
 .contacts .form-group {
   position: relative;
   width: 100%;
-  margin-bottom: 3rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 48px 0px 0px 0px;
+}
+
+.contacts .form-group:first-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.contacts .form-group:last-child {
+  margin: 0px 0px 48px 0px;
 }
 
 .contacts .form-group::before {
@@ -900,6 +908,14 @@ a {
   height: 1px;
   background-color: #000;
   transition: width 0.5s ease-in-out;
+}
+
+.contacts .form-group.error {
+  border-color: #cc0000;
+}
+
+.contacts .form-group.error::before {
+  background-color: #cc0000;
 }
 
 .contacts .form-group.input-active::before {
@@ -918,6 +934,13 @@ a {
   transform: scale(0.75) translateY(-2rem);
 }
 
+.contacts .alert {
+  width: 100%;
+  margin: 10px 0px 0px 0px;
+  font-size: 14px;
+  color: #cc0000;
+}
+
 .contacts input,
 .contacts textarea {
   width: 100%;
@@ -934,6 +957,10 @@ a {
   padding: 18px 28px 18px 28px;
   width: 100%;
   max-width: 390px;
+}
+
+.contacts .btn:disabled {
+  color: #cfcdcd;
 }
 
 .contacts .kappa {

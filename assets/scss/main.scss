@@ -18,6 +18,9 @@ $greyfont-color: #cfcdcd;
 $darkgreyfont-color: #999999;
 $brownfont-color: #996633;
 
+$errorFaint-color: rgba(204, 0, 0, 0.5);
+$error-color: rgba(204, 0, 0, 1);
+
 $helveticaFont: "HelveticaNeueCyr", sans-serif;
 $arimoFont: "Arimo";
 @mixin transition-default {
@@ -851,6 +854,8 @@ a {
 	}
 }
 
+// +++++++++++++  Contact Page +++++++++++
+
 .contacts {
 	&-top {
 		// padding: 118px 0px 40px 0px;
@@ -945,8 +950,16 @@ a {
 	.form-group {
 		position: relative;
 		width: 100%;
-		margin-bottom: 3rem;
+
 		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+		margin: 48px 0px 0px 0px;
+
+		&:first-child {
+			margin: 0px 0px 0px 0px;
+		}
+		&:last-child {
+			margin: 0px 0px 48px 0px;
+		}
 		&::before {
 			content: "";
 			position: absolute;
@@ -957,6 +970,14 @@ a {
 			height: 1px;
 			background-color: #000;
 			transition: width 0.5s ease-in-out;
+		}
+
+		&.error {
+			border-color: $error-color;
+
+			&::before {
+				background-color: $error-color;
+			}
 		}
 
 		&.input-active {
@@ -977,7 +998,12 @@ a {
 			}
 		}
 	}
-
+	.alert {
+		width: 100%;
+		margin: 10px 0px 0px 0px;
+		font-size: 14px;
+		color: #cc0000;
+	}
 	input,
 	textarea {
 		width: 100%;
@@ -994,6 +1020,10 @@ a {
 		padding: 18px 28px 18px 28px;
 		width: 100%;
 		max-width: 390px;
+
+		&:disabled {
+			color: $greyfont-color;
+		}
 	}
 
 	.kappa {

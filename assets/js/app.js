@@ -21,25 +21,6 @@ $slickElement.slick({
 	slidesToShow: 1,
 });
 
-// +++++++++++++++++++++++++++++ Start with slide[0] in viewport ++++++++++++++++++++++++++
-const sliderAbout = document.querySelector(".about-slider");
-
-const sliderAboutOptions = {
-	rootMargin: "-50% 0px 0px  0px",
-};
-
-const sliderAboutObserver = new IntersectionObserver(function (entries, sliderAboutObserver) {
-	entries.forEach((entry) => {
-		if (entry.isIntersecting) {
-			$(".about-slider").slick("slickGoTo", 0);
-		}
-	});
-}, sliderAboutOptions);
-
-if (sliderAbout) {
-	sliderAboutObserver.observe(sliderAbout);
-}
-
 // +++++++++++++++++++++++++++++++ Project Slider ++++++++++++++++++++++++++++++++++++
 $(".projects-slider").slick({
 	arrows: true,
@@ -84,9 +65,132 @@ $(".partners-slider").slick({
 });
 
 window.addEventListener("load", function () {
-	// ------ inputs animation ---------------
+	// +++++++++++++++++++++++++++++ Start with slide[0] in viewport ++++++++++++++++++++++++++
+	const sliderAbout = document.querySelector(".about-slider");
 
-	let feedbackForm = document.querySelector(".feedback-form");
+	const sliderAboutOptions = {
+		rootMargin: "-50% 0px 0px  0px",
+	};
+
+	const sliderAboutObserver = new IntersectionObserver(function (entries, sliderAboutObserver) {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				$(".about-slider").slick("slickGoTo", 0);
+			}
+		});
+	}, sliderAboutOptions);
+
+	if (sliderAbout) {
+		sliderAboutObserver.observe(sliderAbout);
+	}
+	// ++++++++++++++++++++++++++++++++++++++++++ Contact Page ++++++++++++
+	let feedbackForm = document.querySelector(".feedback-form"),
+		btnSend = document.querySelector(".feedback-form .js-btn-send-form"),
+		name = document.querySelector(".feedback-form #name"),
+		email = document.querySelector(".feedback-form #email"),
+		message = document.querySelector(".feedback-form #message"),
+		regExEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	if (name) {
+		name.addEventListener("input", checkName);
+	}
+	if (email) {
+		email.addEventListener("input", checkEmail);
+	}
+	if (message) {
+		message.addEventListener("input", checkMessage);
+	}
+	if (feedbackForm) {
+		feedbackForm.addEventListener("input", checkForm);
+	}
+
+	function checkName(e) {
+		let currentValue = e.target.value,
+			formGroup = e.target.parentNode;
+
+		if (!isNameValid(currentValue)) {
+			formGroup.classList.add("error");
+
+			clearAlert(formGroup, "alert");
+			showAlert(formGroup, "alert", "Name is too short");
+		} else {
+			formGroup.classList.remove("error");
+			clearAlert(formGroup, "alert");
+		}
+	}
+
+	function checkEmail(e) {
+		let currentValue = e.target.value,
+			formGroup = e.target.parentNode;
+
+		if (!isEmailValid(currentValue)) {
+			formGroup.classList.add("error");
+
+			clearAlert(formGroup, "alert");
+			showAlert(formGroup, "alert", "Please enter valid email");
+		} else {
+			formGroup.classList.remove("error");
+			clearAlert(formGroup, "alert");
+		}
+	}
+
+	function checkMessage(e) {
+		let currentValue = e.target.value,
+			formGroup = e.target.parentNode;
+
+		if (!isMessageValid(currentValue)) {
+			formGroup.classList.add("error");
+
+			clearAlert(formGroup, "alert");
+			showAlert(formGroup, "alert", "Message is too short");
+		} else {
+			formGroup.classList.remove("error");
+			clearAlert(formGroup, "alert");
+		}
+	}
+	function checkForm(e) {
+		if (isFormValid()) {
+			btnSend.removeAttribute("disabled");
+		} else {
+			btnSend.setAttribute("disabled", "disabled");
+		}
+	}
+
+	function isNameValid(inputValue) {
+		if (inputValue.trim().length >= 2) return true;
+		else return false;
+	}
+	function isEmailValid(inputValue) {
+		if (regExEmail.test(inputValue)) return true;
+		else return false;
+	}
+	function isMessageValid(inputValue) {
+		if (inputValue.trim().length >= 10) return true;
+		else return false;
+	}
+	function isFormValid() {
+		if (!isNameValid(name.value)) return false;
+		else if (!isEmailValid(email.value)) return false;
+		else if (!isMessageValid(message.value)) return false;
+		else return true;
+	}
+
+	function clearAlert(el, className) {
+		if (el.nextElementSibling.classList.contains(className)) {
+			el.nextElementSibling.remove();
+		}
+	}
+	function showAlert(el, className, msg) {
+		// create
+		let div = document.createElement("div");
+		div.appendChild(document.createTextNode(msg));
+		div.classList.add(className);
+
+		// insert
+		feedbackForm.insertBefore(div, el.nextElementSibling);
+	}
+
+	// ------ inputs animation ---------------
 
 	if (feedbackForm) {
 		let inputs = document.querySelectorAll(".feedback-form .text-input");
