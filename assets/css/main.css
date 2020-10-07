@@ -887,15 +887,11 @@ a {
   position: relative;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 48px 0px 0px 0px;
+  margin: 48px 0px 48px 0px;
 }
 
 .contacts .form-group:first-child {
   margin: 0px 0px 0px 0px;
-}
-
-.contacts .form-group:last-child {
-  margin: 0px 0px 48px 0px;
 }
 
 .contacts .form-group::before {
