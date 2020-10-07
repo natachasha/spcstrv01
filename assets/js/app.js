@@ -84,12 +84,17 @@ window.addEventListener("load", function () {
 		sliderAboutObserver.observe(sliderAbout);
 	}
 	// ++++++++++++++++++++++++++++++++++++++++++ Contact Page ++++++++++++
+
 	let feedbackForm = document.querySelector(".feedback-form"),
 		btnSend = document.querySelector(".feedback-form .js-btn-send-form"),
+		btnOk = document.querySelector(".popup .btn"),
+		btnClose = document.querySelector(".popup-close"),
 		name = document.querySelector(".feedback-form #name"),
 		email = document.querySelector(".feedback-form #email"),
 		message = document.querySelector(".feedback-form #message"),
-		regExEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		regExEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+		popup = document.querySelector(".popup"),
+		popupMsg = document.querySelector(".popup-text");
 
 	if (name) {
 		name.addEventListener("input", checkName);
@@ -102,6 +107,26 @@ window.addEventListener("load", function () {
 	}
 	if (feedbackForm) {
 		feedbackForm.addEventListener("input", checkForm);
+	}
+	if (btnSend) {
+		btnSend.addEventListener("click", sendForm);
+	}
+
+	function sendForm(e) {
+		popupMsg.innerHTML = "";
+
+		if (isFormValid()) {
+			showPopupMsg("Your message was successfully sent!");
+			feedbackForm.reset();
+			btnSend.setAttribute("disabled", "disabled");
+		}
+		e.preventDefault();
+	}
+
+	function showPopupMsg(msg) {
+		let msgText = document.createTextNode(msg);
+		popupMsg.append(msgText);
+		popup.classList.add("open");
 	}
 
 	function checkName(e) {
@@ -188,6 +213,32 @@ window.addEventListener("load", function () {
 
 		// insert
 		feedbackForm.insertBefore(div, el.nextElementSibling);
+	}
+
+	// ------- close pop up --------
+	if (btnOk) {
+		btnOk.addEventListener("click", closePopup);
+	}
+	if (btnClose) {
+		btnClose.addEventListener("click", closePopup);
+	}
+	if (popup) {
+		popup.addEventListener("click", (e) => {
+			if (!e.target.closest(".popup-content")) {
+				closePopup(e);
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.which === 27) {
+				closePopup(e);
+			}
+		});
+	}
+
+	function closePopup(e) {
+		popup.classList.remove("open");
+		e.preventDefault();
 	}
 
 	// ------ inputs animation ---------------

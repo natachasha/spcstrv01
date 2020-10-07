@@ -953,10 +953,17 @@ a {
   padding: 18px 28px 18px 28px;
   width: 100%;
   max-width: 390px;
+  background-size: 201% 100%;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease-in-out;
 }
 
 .contacts .btn:disabled {
   color: #cfcdcd;
+}
+
+.contacts .btn:hover {
+  border: 2px solid #000000;
 }
 
 .contacts .kappa {
@@ -964,6 +971,66 @@ a {
   padding: 80px 0px 0px 0px;
   margin: 48px 0px 48px 0px;
   background: url("../img/contacts-capcha.jpg") no-repeat center center/contain;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-content {
+  background-color: #ffffff;
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
+  max-width: 300px;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-close:hover {
+  color: #cc0000;
+  transform: rotate(90deg);
+}
+
+.popup-text {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 10px 0px 20px 0px;
+}
+
+.popup .btn {
+  max-width: 200px;
+  margin: 0 auto 10px auto;
+  padding: 15px 0px 15px 0px;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup .btn:hover {
+  border: 2px solid #000000;
 }
 
 .map {
