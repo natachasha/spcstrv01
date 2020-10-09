@@ -123,6 +123,7 @@ a {
 }
 
 .header {
+	overflow: hidden;
 	&-top {
 		background-color: $dark-color;
 		color: $light-color;
@@ -588,6 +589,7 @@ a {
 }
 
 .call {
+	overflow: hidden;
 	.container-content {
 		padding: 0px 0px 0px 0px;
 	}
@@ -632,6 +634,7 @@ a {
 }
 
 .footer {
+	overflow: hidden;
 	padding: 102px 0px 75px 0px;
 	padding: 7.468% 0px 75px 0px; /*1366*/
 	background: url("../img/footer-bg.jpg") no-repeat center 72% / contain;
@@ -896,9 +899,6 @@ a {
 		flex: 0 1 57.408%;
 		// padding: 0px 110px 0px 0px;
 		padding: 0px 14% 0px 0px;
-		a {
-			color: $dark-color;
-		}
 
 		h3 {
 			font-weight: 400;
@@ -1015,6 +1015,7 @@ a {
 	}
 
 	.btn {
+		margin: 50px 0px 50px 0px;
 		padding: 18px 28px 18px 28px;
 		width: 100%;
 		max-width: 390px;
@@ -1033,10 +1034,20 @@ a {
 	}
 
 	.kappa {
+		display: none;
 		width: 307px;
 		padding: 80px 0px 0px 0px;
 		margin: 48px 0px 48px 0px;
 		background: url("../img/contacts-capcha.jpg") no-repeat center center/contain;
+	}
+
+	.policy {
+		color: grey;
+		line-height: 1.5;
+
+		span {
+			font-weight: bold;
+		}
 	}
 }
 
@@ -1107,7 +1118,8 @@ a {
 		padding: 0px 0px 0px 0px;
 	}
 	&-content {
-		padding: 470px 0px 0px 0px;
+		// padding: 470px 0px 0px 0px;
+		padding: 33.333% 0px 0px 0px; /*1960 */
 		width: 100%;
 		background: url("../img/map.jpg") no-repeat center center/contain;
 	}

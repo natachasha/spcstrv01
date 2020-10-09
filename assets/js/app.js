@@ -183,21 +183,21 @@ window.addEventListener("load", function () {
 
 	function isNameValid(inputValue) {
 		if (inputValue.trim().length >= 2) return true;
-		else return false;
+		return false;
 	}
 	function isEmailValid(inputValue) {
 		if (regExEmail.test(inputValue)) return true;
-		else return false;
+		return false;
 	}
 	function isMessageValid(inputValue) {
 		if (inputValue.trim().length >= 10) return true;
-		else return false;
+		return false;
 	}
 	function isFormValid() {
 		if (!isNameValid(name.value)) return false;
-		else if (!isEmailValid(email.value)) return false;
-		else if (!isMessageValid(message.value)) return false;
-		else return true;
+		if (!isEmailValid(email.value)) return false;
+		if (!isMessageValid(message.value)) return false;
+		return true;
 	}
 
 	function clearAlert(el, className) {

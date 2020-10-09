@@ -1,6 +1,8 @@
 $widthContainer1366: 1200;
 $paddingContainer1366: 25;
 
+$paddingContainer1100: 5.909%;
+
 $widthContainer414: 414;
 $paddingContainer414: 24;
 
@@ -19,9 +21,46 @@ $arimoFont: "Arimo";
 	transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 1440px) {
+@media screen and (max-width: 1440px) {
 	.container-content {
 		max-width: $widthContainer1366 + px;
 		padding: 0 $paddingContainer1366 + px;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.container-content {
+		padding: 0 $paddingContainer1100;
+	}
+
+	.contacts {
+		&-content {
+			display: block;
+		}
+
+		&-info {
+			margin: 0px 0px 65px 0px;
+			padding: 0px 0px 0px 0px;
+		}
+
+		&-form {
+			max-width: 575px;
+			margin: 0 auto;
+		}
+	}
+}
+@media screen and (max-width: 460px) {
+	.contacts {
+		&-top {
+			h1 {
+				font-size: 2rem;
+			}
+		}
+		&-info {
+			font-size: 0.875rem;
+			h3 {
+				font-size: 1rem;
+			}
+		}
 	}
 }
