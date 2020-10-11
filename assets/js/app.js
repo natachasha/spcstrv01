@@ -80,13 +80,7 @@ window.addEventListener("load", function () {
 			btnToTop.classList.remove("visible-js");
 		}
 	});
-	// window.onscroll = function () {
-	// 	scrollFunction();
-	// };
 
-	// function scrollFunction() {
-	//
-	// }
 	// +++++++++++++++++++++++++++++ Start with slide[0] in viewport ++++++++++++++++++++++++++
 	const sliderAbout = document.querySelector(".about-slider");
 
