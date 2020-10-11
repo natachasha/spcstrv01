@@ -65,6 +65,28 @@ $(".partners-slider").slick({
 });
 
 window.addEventListener("load", function () {
+	// +++++++++++++++++++++++++++++ sroll to the top ++++++++++++++++++++++++++++
+	$(".totop").click(function () {
+		$("html, body").animate({ scrollTop: 0 }, 800);
+		return false;
+	});
+
+	const btnToTop = document.querySelector(".totop");
+
+	window.addEventListener("scroll", (e) => {
+		if (window.pageYOffset > 900) {
+			btnToTop.classList.add("visible-js");
+		} else {
+			btnToTop.classList.remove("visible-js");
+		}
+	});
+	// window.onscroll = function () {
+	// 	scrollFunction();
+	// };
+
+	// function scrollFunction() {
+	//
+	// }
 	// +++++++++++++++++++++++++++++ Start with slide[0] in viewport ++++++++++++++++++++++++++
 	const sliderAbout = document.querySelector(".about-slider");
 

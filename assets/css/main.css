@@ -105,8 +105,37 @@ a {
   flex: 1 0 auto;
 }
 
-.header {
-  overflow: hidden;
+.totop {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #ff9900;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.totop.visible-js {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.totop.visible-js:hover {
+  opacity: 1;
+}
+
+.totop svg {
+  color: inherit;
+  width: 20px;
+  height: 20px;
 }
 
 .header-top {
@@ -605,7 +634,6 @@ a {
 }
 
 .footer {
-  overflow: hidden;
   padding: 102px 0px 75px 0px;
   padding: 7.468% 0px 75px 0px;
   /*1366*/
