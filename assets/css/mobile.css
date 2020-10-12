@@ -1,3 +1,10 @@
+@media (max-width: 1440px) {
+  .container-content {
+    max-width: 1200px;
+    padding: 0 25px;
+  }
+}
+
 @media screen and (max-width: 1440px) {
   .container-content {
     max-width: 1200px;
@@ -23,7 +30,7 @@
 }
 
 @media screen and (max-width: 460px) {
-  .contacts-top h1 {
+  .page-heading h1 {
     font-size: 2rem;
   }
   .contacts-info {

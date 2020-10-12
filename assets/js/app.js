@@ -1,84 +1,25 @@
-// +++++++++++++++++++++++++++++ About Slider ++++++++++++++++++++++++++
-var $status = $(".pageinfo");
-var $slickElement = $(".about-slider");
-$slickElement.on("init reInit afterChange", function (event, slick, currentSlide, nextSlide) {
-	//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-	// if (!slick.$dots) {
-	// 	return;
-	// }
-
-	var i = (currentSlide ? currentSlide : 0) + 1;
-	$status.text(i);
-});
-
-$slickElement.slick({
-	autoplay: true,
-	arrows: true,
-	appendArrows: $(".about-controls"),
-	nextArrow: `<button>&gt;</button>`,
-	prevArrow: `<button>&lt;</button>`,
-	infinite: true,
-	slidesToShow: 1,
-});
-
-// +++++++++++++++++++++++++++++++ Project Slider ++++++++++++++++++++++++++++++++++++
-$(".projects-slider").slick({
-	arrows: true,
-	autoplay: true,
-
-	dots: false,
-	easing: "ease-in-out",
-	infinite: true,
-	// pauseOnHover: false,
-	slidesToShow: 3,
-	slidesToScroll: 1,
-	// responsive: [
-	// {
-	// 	breakpoint: 1024,
-	// 	settings: {
-	// 		slidesToShow: 3,
-	// 		infinite: true,
-	// 	},
-	// },
-	// {
-	// 	breakpoint: 600,
-	// 	settings: {
-	// 		slidesToShow: 2,
-	// 		dots: true,
-	// 	},
-	// },
-	// 	{
-	// 		breakpoint: 1024,
-	// 		settings: "unslick", // destroys slick
-	// 	},
-	// ],
-});
-// +++++++++++++++++++++++++++++++ Footer Slider ++++++++++++++++++++++++++++++++++++
-$(".partners-slider").slick({
-	arrows: false,
-	autoplay: true,
-	dots: false,
-	infinite: true,
-	pauseOnHover: false,
-	slidesToShow: 5,
-	slidesToScroll: 2,
-});
-
 window.addEventListener("load", function () {
-	// +++++++++++++++++++++++++++++ sroll to the top ++++++++++++++++++++++++++++
-	$(".totop").click(function () {
-		$("html, body").animate({ scrollTop: 0 }, 800);
-		return false;
+	// +++++++++++++++++++++++++++++ About Slider ++++++++++++++++++++++++++
+	var $status = $(".pageinfo");
+	var $slickElement = $(".about-slider");
+	$slickElement.on("init reInit afterChange", function (event, slick, currentSlide, nextSlide) {
+		//currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+		// if (!slick.$dots) {
+		// 	return;
+		// }
+
+		var i = (currentSlide ? currentSlide : 0) + 1;
+		$status.text("< " + i + " >");
 	});
 
-	const btnToTop = document.querySelector(".totop");
-
-	window.addEventListener("scroll", (e) => {
-		if (window.pageYOffset > 900) {
-			btnToTop.classList.add("visible-js");
-		} else {
-			btnToTop.classList.remove("visible-js");
-		}
+	$slickElement.slick({
+		autoplay: true,
+		arrows: true,
+		/*appendArrows: $(".about-controls"),*/
+		/*nextArrow: `<button>&gt;</button>`,
+			prevArrow: `<button>&lt;</button>`,*/
+		infinite: true,
+		slidesToShow: 1,
 	});
 
 	// +++++++++++++++++++++++++++++ Start with slide[0] in viewport ++++++++++++++++++++++++++
@@ -99,6 +40,132 @@ window.addEventListener("load", function () {
 	if (sliderAbout) {
 		sliderAboutObserver.observe(sliderAbout);
 	}
+
+	// +++++++++++++++++++++++++++++++ Project Slider ++++++++++++++++++++++++++++++++++++
+	$(".projects-slider").slick({
+		arrows: true,
+		autoplay: true,
+
+		dots: false,
+		easing: "ease-in-out",
+		infinite: true,
+		// pauseOnHover: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 840,
+				settings: "unslick", // destroys slick
+			},
+		],
+	});
+	// +++++++++++++++++++++++++++++++ Footer Slider ++++++++++++++++++++++++++++++++++++
+	/*$(".partners-slider").slick({
+			arrows: false,
+			autoplay: true,
+			dots: false,
+			infinite: true,
+			pauseOnHover: false,
+			slidesToShow: 5,
+			slidesToScroll: 2,
+		});*/
+
+	// ---- intersection observer for elements animation fade-in
+
+	let options = {
+		root: null,
+		rootMargin: "0px",
+		threshold: 0.1,
+	};
+
+	let callback = function (entries, observer) {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("io-fadein");
+				observer.unobserve(entry.target);
+			}
+		});
+	};
+
+	let observer = new IntersectionObserver(callback, options);
+	let query = `.hero-content *:not(.btn), 
+					.services-item, 
+					.features *,
+					.about .title,
+					.about-body,
+					.projects .title,
+					.ptojects-slider,
+					.call,
+					.footer-logo,
+					.connection-description,
+					.connection-process,
+					.footer h5,
+					.footer .list,
+					.connection-nav,
+					.footer .copy,
+					.footer .partners`;
+
+	let elements = [...document.querySelectorAll(query)];
+
+	if (elements[0] !== null) {
+		elements.forEach((el) => {
+			observer.observe(el);
+		});
+	}
+
+	//show menu
+
+	let menuIcon = document.querySelector(".menu-icon");
+	console.log(menuIcon);
+
+	menuIcon.addEventListener("click", showHeaderNavigation);
+	document.querySelector(".menu").addEventListener("click", closeNav);
+
+	let lis = document.querySelectorAll(".menu ul li");
+
+	for (let i = 1; i < lis.length; i++) {
+		lis[i].addEventListener("click", closeNav);
+	}
+
+	function showHeaderNavigation() {
+		document.querySelector(".menu").style.top = "0";
+	}
+
+	function closeNav() {
+		document.querySelector(".menu").style.top = "-2000px";
+	}
+
+	let showMore = document.querySelector(".show-more");
+
+	if (showMore) {
+		showMore.addEventListener("click", showMoreText);
+	}
+
+	let showed = false;
+
+	function showMoreText() {
+		showed = !showed;
+		let texts = document.querySelectorAll(".about-text p:nth-child(n+3)");
+
+		for (let i = 0; i < texts.length; i++) {
+			texts[i].style.display = "block";
+		}
+
+		if (!showed) {
+			showMore.classList.remove("rotate");
+			for (let i = 0; i < texts.length; i++) {
+				texts[i].style.display = "none";
+			}
+			showMore.innerText = "читать еще";
+		} else {
+			showMore.classList.add("rotate");
+			for (let i = 0; i < texts.length; i++) {
+				texts[i].style.display = "block";
+			}
+			showMore.innerText = "скрыть";
+		}
+	}
+
 	// ++++++++++++++++++++++++++++++++++++++++++ Contact Page ++++++++++++
 
 	let feedbackForm = document.querySelector(".feedback-form"),
@@ -271,5 +338,26 @@ window.addEventListener("load", function () {
 	function toggleActiveFormGroup(e) {
 		e.target.parentNode.classList.toggle("input-active");
 		e.target.previousElementSibling.classList.toggle("input-active");
+	}
+
+	// -----------  BTN TO TOP --------------------
+
+	$(".totop").click(function () {
+		$("html, body").animate({ scrollTop: 0 }, 800);
+		return false;
+	});
+
+	const btnToTop = document.querySelector(".totop");
+
+	if (btnToTop) {
+		window.addEventListener("scroll", toggleBtnToTop);
+	}
+
+	function toggleBtnToTop() {
+		if (window.pageYOffset > 900) {
+			btnToTop.classList.add("visible-js");
+		} else {
+			btnToTop.classList.remove("visible-js");
+		}
 	}
 });

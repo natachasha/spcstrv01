@@ -107,8 +107,8 @@ a {
 
 .totop {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 3.125rem;
+  right: 3.125rem;
   opacity: 0;
   visibility: hidden;
   background-color: #ff9900;
@@ -136,6 +136,10 @@ a {
   color: inherit;
   width: 20px;
   height: 20px;
+}
+
+.main {
+  overflow-x: hidden;
 }
 
 .header-top {
@@ -830,22 +834,21 @@ a {
   font-weight: bold;
 }
 
-.contacts-top {
-  padding: 6.021% 0px 2.041% 0px;
-  /*1960 */
-  background: url("../img/contacts-bg.jpg") left center/cover;
+.page-heading {
+  padding: 4.643% 0px 13px 0px;
+  background-position: left center;
+  background-size: cover;
 }
 
-.contacts-top h1 {
+.page-heading h1 {
   text-transform: uppercase;
-  color: #ffffff;
   font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: 1px;
   position: relative;
 }
 
-.contacts-top h1:after {
+.page-heading h1:after {
   content: "";
   position: absolute;
   width: 100%;
@@ -853,6 +856,9 @@ a {
   bottom: -14px;
   left: 0;
   right: 0;
+}
+
+.contacts-top h1:after {
   background-color: #ffffff;
 }
 
@@ -1091,5 +1097,88 @@ a {
   /*1960 */
   width: 100%;
   background: url("../img/map.jpg") no-repeat center center/contain;
+}
+
+.vacancy h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0px 0px 24px 0px;
+}
+
+.vacancy-heading h1:after {
+  background-color: #000000;
+}
+
+.vacancy-description {
+  display: flex;
+  padding: 9.038% 0px 4.08% 0px;
+}
+
+.vacancy-text {
+  flex: 1 0 59.63%;
+  padding: 0px 4.08% 0px 0px;
+}
+
+.vacancy-text p {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0px 0px 20px 0px;
+}
+
+.vacancy-text p:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.vacancy-text .phone {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.vacancy-img {
+  flex: 1 0 40.37%;
+}
+
+.vacancy-img img {
+  max-width: 100%;
+}
+
+.offers-item {
+  border: 1px solid #000000;
+  background-color: #f4f4f4;
+  padding: 28px 28px 28px 28px;
+}
+
+.offers-details {
+  font-weight: bold;
+  color: #999999;
+  margin: 0px 0px 15px 0px;
+}
+
+.offers-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.offers-text {
+  padding: 36px 0px 11px 0px;
+}
+
+.offers-text h6 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0px 0px 15px 0px;
+}
+
+.offers-text p {
+  margin: 0px 0px 15px 0px;
+}
+
+.offers-text ul {
+  margin: 0px 0px 0px 16px;
+}
+
+.offers-text li {
+  margin: 0px 0px 15px 0px;
 }
 /*# sourceMappingURL=main.css.map */

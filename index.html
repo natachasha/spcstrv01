@@ -5,15 +5,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>ООО «Спецстрой» | Монтаж теплоизоляции и огнезащиты в любом регионе России</title>
 
-		<link rel="stylesheet" href="assets/css/_normalize.css" />
+		<!-- CDN START -->
 		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 		<link
 			rel="stylesheet"
 			type="text/css"
 			href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
 		/>
+		<!-- CDN END -->
+
+		<!-- LIBS START -->
+		<!-- <link rel="stylesheet" href="assets/libs/slick/slick.css" />
+		<link rel="stylesheet" href="assets/libs/slick/slick-theme.css"/> -->
+		<!-- LIBS END -->
+
+		<link rel="shortcut icon" href="assets/img/fav.ico" />
+		<link rel="stylesheet" href="assets/css/_normalize.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/mobile.css" />
+		<link rel="stylesheet" href="assets/css/edits.css" />
 	</head>
 	<body>
 		<a href="#" class="totop">
@@ -33,7 +43,6 @@
 				></path>
 			</svg>
 		</a>
-
 		<div class="wrapper">
 			<header class="header">
 				<div class="header-top">
@@ -42,7 +51,7 @@
 							<p>ООО «Спецстрой». Монтаж теплоизоляции и огнезащиты в любом регионе России.</p>
 						</div>
 						<div class="top-column">
-							<a class="callback btn-open-modal" href="">заказать обратный звонок</a>
+							<a class="callback" href="">заказать обратный звонок</a>
 							<a class="phone" href="tel:+73494939108">+7 (3494) 93-91-08</a>
 						</div>
 					</div>
@@ -51,11 +60,10 @@
 					<div class="content container-content">
 						<div class="bottom-column logo-content">
 							<div class="logo-wrapper">
-								<a href="#">
+								<a href="index.html">
 									<img src="assets/img/logo.png" alt="Лого" />
 								</a>
 							</div>
-
 							<p>
 								<span>ООО «Спецстрой» </span>
 								<span>20 лет с вами! </span>
@@ -68,13 +76,23 @@
 									<li><a href="">ТЕПЛОИЗОЛЯЦИЯ</a></li>
 									<li><a href="">ОГНЕЗАЩИТА</a></li>
 									<li><a href="">ПРОЕКТЫ</a></li>
-									<li><a href="">Вакансии</a></li>
+									<li><a href="vacancy.html">Вакансии</a></li>
 									<li><a href="contacts.html">Контакты</a></li>
 								</ul>
 							</nav>
-							<div class="menu-icon">
-								<span></span>
-								<span></span>
+							<div
+								class="menu-icon"
+								style="
+									width: 35px;
+									height: 30px;
+									background-image: url('assets/img/burger.png');
+									background-size: cover;
+									background-repeat: no-repeat;
+									background-position: center;
+								"
+							>
+								<!-- <span></span>
+								<span></span> -->
 							</div>
 						</div>
 					</div>
@@ -82,7 +100,7 @@
 			</header>
 
 			<main class="main">
-				<section class="section hero">
+				<section class="section hero" style="background-image: url('assets/img/ban_sps.jpg')">
 					<div class="container-content">
 						<div class="hero-content">
 							<h1>Комплексные решения теплоизоляции и огнезащиты</h1>
@@ -94,8 +112,10 @@
 									<li><span>вентиляционных каналов</span></li>
 									<li><span>технологических линий</span></li>
 								</ul>
-
-								<div class="process">
+							</div>
+							<div style="display: flex; flex-flow: row wrap; justify-content: flex-start; align-items: center">
+								<a href="" class="btn" style="max-height: 50px; width: 320px">заказать обратный звонок</a>
+								<div class="process" style="margin-left: 6.5rem">
 									<img src="assets/img/process-header.png" alt="" /><br />
 									<div class="process-sings">
 										<div>ПРОЕКТ</div>
@@ -104,7 +124,6 @@
 									</div>
 								</div>
 							</div>
-							<a href="" class="btn btn-open-modal">заказать обратный звонок</a>
 						</div>
 					</div>
 				</section>
@@ -216,7 +235,7 @@
 										месторождение и многие другие на территории Российской Федерации.
 									</p>
 									<p>
-										<strong>ООО «Спецстрой» является постоянным членом НП СРО «МонтажТеплоСпецстрой»</strong>
+										<strong>ООО «Спецстрой» является постоянным членом НП СРО «МонтажТеплоСпецстрой»<br /></strong>
 										<a href="">/свидетельство о допуске к определенному виду работ/</a>
 									</p>
 									<p>
@@ -238,6 +257,7 @@
 										по строительству.
 									</p>
 								</div>
+								<div class="show-more">читать еще</div>
 								<div class="about-docs">
 									<div class="about-slider">
 										<div class="about-slide"><img src="assets/img/doc-01.jpg" alt="" /></div>
@@ -258,7 +278,7 @@
 				<section class="section projects">
 					<div class="container-content">
 						<div class="projects-content">
-							<h2 class="title">ПРОЕКТЫ</h2>
+							<h2 class="title">РЕАЛИЗОВАННЫЕ ПРОЕКТЫ</h2>
 							<div class="projects-slider">
 								<div class="projects-slide">
 									<div class="item-img" style="background-image: url('assets/img/project-01.jpg')"></div>
@@ -302,6 +322,7 @@
 								</div>
 							</div>
 						</div>
+						<p class="look-more" style="text-align: center">Смотреть все проекты ></p>
 					</div>
 				</section>
 
@@ -315,7 +336,7 @@
 								<div>
 									<p>+7 (3494) 93-91-08</p>
 
-									<a href="" class="btn btn-open-modal">ЗАДАТЬ ВОПРОС</a>
+									<a href="" class="btn">ЗАДАТЬ ВОПРОС</a>
 								</div>
 							</div>
 						</div>
@@ -351,7 +372,7 @@
 							<div class="connection-column connection-contacts">
 								<h5>Контакты</h5>
 								<ul class="list">
-									<li>629305, Россия, Ямало-Ненецкий автономный округ, г. Новый Уренгой, ул. Магистральная, дом №16</li>
+									<li>629305, Россия, Ямало-Ненецкий автономный округ, г. Новый Уренгой, ул. Магистральная, 16</li>
 									<li>
 										<a href="tel:+7349493-91-08">+7(3494) 93-91-08</a>
 									</li>
@@ -423,20 +444,20 @@
 										<li><a href="">ОГНЕЗАЩИТА</a></li>
 										<li><a href="">ПРОЕКТЫ</a></li>
 										<li><a href="">Вакансии</a></li>
-										<li><a href="contacts.html">Контакты</a></li>
+										<li><a href="">Контакты</a></li>
 									</ul>
 								</nav>
 
 								<ul class="connection-policy">
 									<li><a href="">Политика конфиденциальности</a></li>
 									<li><a href="">Публичная оферта</a></li>
-									<li><a href="">Карта сайта</a></li>
+									<!-- <li><a href="">Карта сайта</a></li> -->
 								</ul>
 							</div>
 						</div>
 						<div class="footer-row copy">
 							&copy; ООО «Спецстрой».
-							<span>Все права защищены</span>
+							<!-- <span>Все права защищены</span> -->
 						</div>
 						<div class="footer-row partners partners-slider">
 							<div class="partners-slide">
@@ -469,21 +490,27 @@
 								</div>
 							</div>
 
-							<div class="partners-slide">
+							<!-- <div class="partners-slide">
 								<div class="partners-item">
 									<img src="assets/img/clients-01.png" alt="" />
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 			</footer>
 		</div>
 
+		<!-- CDN START -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<!-- <script type="text/javascript" src="slick/slick.min.js"></script> -->
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+		<!-- CDN END -->
 		<script src="assets/js/app.js"></script>
+		<!-- LIB START -->
+		<!-- <script src="assets/libs/jquery/jquery-3.5.1.min.js"></script>
+		<script src="assets/libs/slick/slick.min.js"></script> -->
+		<!-- LIB END -->
 	</body>
 </html>

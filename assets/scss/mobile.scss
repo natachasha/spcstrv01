@@ -1,6 +1,34 @@
 $widthContainer1366: 1200;
 $paddingContainer1366: 25;
 
+$widthContainer414: 414;
+$paddingContainer414: 24;
+
+$dark-color: #000000;
+$greyish-color: #f4f4f4;
+$light-color: #ffffff;
+$primary-color: #ff9900;
+
+$greyfont-color: #cfcdcd;
+$darkgreyfont-color: #999999;
+$brownfont-color: #996633;
+
+$helveticaFont: "HelveticaNeueCyr", sans-serif;
+$arimoFont: "Arimo";
+@mixin transition-default {
+	transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1440px) {
+	.container-content {
+		max-width: $widthContainer1366 + px;
+		padding: 0 $paddingContainer1366 + px;
+	}
+}
+
+$widthContainer1366: 1200;
+$paddingContainer1366: 25;
+
 $paddingContainer1100: 5.909%;
 
 $widthContainer414: 414;
@@ -50,12 +78,14 @@ $arimoFont: "Arimo";
 	}
 }
 @media screen and (max-width: 460px) {
-	.contacts {
-		&-top {
+	.page {
+		&-heading {
 			h1 {
 				font-size: 2rem;
 			}
 		}
+	}
+	.contacts {
 		&-info {
 			font-size: 0.875rem;
 			h3 {
