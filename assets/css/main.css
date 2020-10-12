@@ -848,14 +848,10 @@ a {
   position: relative;
 }
 
-.page-heading h1:after {
-  content: "";
-  position: absolute;
+.page-heading .line {
   width: 100%;
   height: 2px;
-  bottom: -14px;
-  left: 0;
-  right: 0;
+  transform: translateY(-14px);
 }
 
 .contacts-top h1:after {
@@ -1104,10 +1100,6 @@ a {
   font-size: 1.5rem;
   text-transform: uppercase;
   margin: 0px 0px 24px 0px;
-}
-
-.vacancy-heading h1:after {
-  background-color: #000000;
 }
 
 .vacancy-description {
