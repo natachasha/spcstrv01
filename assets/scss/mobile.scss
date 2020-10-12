@@ -87,6 +87,13 @@ $arimoFont: "Arimo";
 	}
 }
 @media screen and (max-width: 460px) {
+	.connection {
+		.process {
+			img {
+				max-width: 100%;
+			}
+		}
+	}
 	.page {
 		&-heading {
 			h1 {
