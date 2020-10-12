@@ -1207,6 +1207,7 @@ a {
 		}
 
 		.phone {
+			color: $dark-color;
 			font-weight: bold;
 			font-size: 1.5rem;
 		}
@@ -1223,27 +1224,55 @@ a {
 }
 
 .offers {
-	position: relative;
 	// h2 {
 	// 	margin: 0px 0px 47px 0px;
 	// }
 	&-item {
-		border: 1px solid $dark-color;
+		border: 1px solid $greyish-color;
 		background-color: $greyish-color;
 		padding: 28px 28px 28px 28px;
+		margin: 0px 0px 20px 0px;
+		position: relative;
+		@include transition-default();
+
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+
+		&:hover {
+			border-color: $dark-color;
+		}
 	}
 	&-btn {
+		cursor: pointer;
 		position: absolute;
+		right: 16px;
+		top: 16px;
 		width: 30px;
 		height: 30px;
 		border: 1px solid $dark-color;
 		border-radius: 5px;
 		background-color: $light-color;
+		&:hover {
+			background-color: #f4f4f4;
+			@include transition-default();
+		}
+
+		img {
+			transform: rotate(180deg);
+			@include transition-default();
+		}
+
+		// &:hover {
+		// 	img {
+		// 		transform: rotate(0deg);
+		// 	}
+		// }
 	}
 	&-details {
 		font-weight: bold;
 		color: $darkgreyfont-color;
-		margin: 0px 0px 15px 0px;
+		margin: 0px 20px 15px 0px;
 	}
 	&-title {
 		font-size: 1.25rem;
@@ -1251,9 +1280,9 @@ a {
 	}
 	&-body {
 		// background-color: cyan;
-
-		// max-height: 0px;
-		// overflow: hidden;
+		transition: all 0.5s; /*close*/
+		max-height: 0px;
+		overflow: hidden;
 	}
 	&-text {
 		padding: 36px 0px 11px 0px;
@@ -1271,6 +1300,20 @@ a {
 		}
 		li {
 			margin: 0px 0px 15px 0px;
+		}
+	}
+
+	&-item.open {
+		border-color: $dark-color;
+		.offers-body {
+			transition: all 1s; /*open*/
+			max-height: 1000px;
+			// overflow: visible;
+		}
+		.offers-btn {
+			img {
+				transform: rotate(0deg);
+			}
 		}
 	}
 }

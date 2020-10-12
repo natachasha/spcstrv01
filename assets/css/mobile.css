@@ -27,6 +27,12 @@
     max-width: 575px;
     margin: 0 auto;
   }
+  .vacancy-description {
+    display: block;
+  }
+  .vacancy-img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 460px) {
@@ -37,6 +43,18 @@
     font-size: 0.875rem;
   }
   .contacts-info h3 {
+    font-size: 1rem;
+  }
+  .vacancy h2 {
+    font-size: 1rem;
+  }
+  .vacancy-text p {
+    font-size: 0.875rem;
+  }
+  .vacancy-text p:last-child {
+    margin: 0px 0px 20px 0px;
+  }
+  .vacancy-text .phone {
     font-size: 1rem;
   }
 }

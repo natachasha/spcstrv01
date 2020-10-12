@@ -1131,6 +1131,7 @@ a {
 }
 
 .vacancy-text .phone {
+  color: #000000;
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -1143,18 +1144,28 @@ a {
   max-width: 100%;
 }
 
-.offers {
-  position: relative;
-}
-
 .offers-item {
-  border: 1px solid #000000;
+  border: 1px solid #f4f4f4;
   background-color: #f4f4f4;
   padding: 28px 28px 28px 28px;
+  margin: 0px 0px 20px 0px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.offers-item:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.offers-item:hover {
+  border-color: #000000;
 }
 
 .offers-btn {
+  cursor: pointer;
   position: absolute;
+  right: 16px;
+  top: 16px;
   width: 30px;
   height: 30px;
   border: 1px solid #000000;
@@ -1162,15 +1173,32 @@ a {
   background-color: #ffffff;
 }
 
+.offers-btn:hover {
+  background-color: #f4f4f4;
+  transition: all 0.3s ease-in-out;
+}
+
+.offers-btn img {
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
+}
+
 .offers-details {
   font-weight: bold;
   color: #999999;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 20px 15px 0px;
 }
 
 .offers-title {
   font-size: 1.25rem;
   font-weight: 400;
+}
+
+.offers-body {
+  transition: all 0.5s;
+  /*close*/
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .offers-text {
@@ -1193,5 +1221,19 @@ a {
 
 .offers-text li {
   margin: 0px 0px 15px 0px;
+}
+
+.offers-item.open {
+  border-color: #000000;
+}
+
+.offers-item.open .offers-body {
+  transition: all 1s;
+  /*open*/
+  max-height: 1000px;
+}
+
+.offers-item.open .offers-btn img {
+  transform: rotate(0deg);
 }
 /*# sourceMappingURL=main.css.map */

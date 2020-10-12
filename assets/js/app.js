@@ -360,4 +360,21 @@ window.addEventListener("load", function () {
 			btnToTop.classList.remove("visible-js");
 		}
 	}
+
+	// ------------- 	ACCORDION VACANCY PAGE -------------
+	const itemsOffer = document.querySelectorAll(".offers-item");
+
+	if (itemsOffer) {
+		itemsOffer.forEach((item) => item.addEventListener("click", openItem));
+	}
+
+	function openItem(e) {
+		const parent = e.target.closest(".offers-item");
+		if (!parent.classList.contains("open")) {
+			itemsOffer.forEach((item) => {
+				item.classList.remove("open");
+			});
+		}
+		parent.classList.toggle("open");
+	}
 });
