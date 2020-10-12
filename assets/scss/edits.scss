@@ -434,7 +434,7 @@
 
 	.header {
 		display: flex;
-		flex-flow: column;
+		flex-flow: column wrap;
 	}
 
 	.hero .btn {
