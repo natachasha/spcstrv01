@@ -169,6 +169,7 @@
 	}
 
 	.menu {
+		display: none;
 		position: absolute;
 		top: -2000px;
 		bottom: 0;
@@ -432,10 +433,10 @@
 		height: 25px;
 	}
 
-	// .header {
-	// 	display: flex;
-	// 	flex-flow: column;
-	// }
+	.header {
+		display: flex;
+		flex-flow: column;
+	}
 
 	.hero .btn {
 		max-width: 100%;

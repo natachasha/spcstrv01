@@ -1223,6 +1223,7 @@ a {
 }
 
 .offers {
+	position: relative;
 	// h2 {
 	// 	margin: 0px 0px 47px 0px;
 	// }
@@ -1230,6 +1231,14 @@ a {
 		border: 1px solid $dark-color;
 		background-color: $greyish-color;
 		padding: 28px 28px 28px 28px;
+	}
+	&-btn {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		border: 1px solid $dark-color;
+		border-radius: 5px;
+		background-color: $light-color;
 	}
 	&-details {
 		font-weight: bold;

@@ -172,6 +172,7 @@
     width: 100%;
   }
   .menu {
+    display: none;
     position: absolute;
     top: -2000px;
     bottom: 0;
@@ -382,6 +383,10 @@
   .menu-icon {
     width: 60px;
     height: 25px;
+  }
+  .header {
+    display: flex;
+    flex-flow: column;
   }
   .hero .btn {
     max-width: 100%;

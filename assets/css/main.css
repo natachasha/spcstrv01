@@ -1143,10 +1143,23 @@ a {
   max-width: 100%;
 }
 
+.offers {
+  position: relative;
+}
+
 .offers-item {
   border: 1px solid #000000;
   background-color: #f4f4f4;
   padding: 28px 28px 28px 28px;
+}
+
+.offers-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  background-color: #ffffff;
 }
 
 .offers-details {
