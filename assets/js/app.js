@@ -258,7 +258,6 @@ window.addEventListener("load", function () {
 		let currentValue = e.target.value.trim(),
 			formGroup = e.target.parentNode,
 			parent = e.target.closest(".form");
-		console.log(currentValue);
 
 		if (!isTelValid(currentValue)) {
 			formGroup.classList.add("error");
@@ -296,6 +295,7 @@ window.addEventListener("load", function () {
 	}
 
 	function checkClbForm(e) {
+		// console.log(e.target);
 		if (isClbFormValid()) {
 			btnClbSend.removeAttribute("disabled");
 		} else {
@@ -351,31 +351,30 @@ window.addEventListener("load", function () {
 
 	// ------- close pop up --------
 	if (btnOk) {
-		btnOk.addEventListener("click", closePopup);
+		btnOk.addEventListener("click", closePopupMsg);
 	}
 	if (btnClose) {
-		btnClose.addEventListener("click", closePopup);
+		btnClose.addEventListener("click", closePopupMsg);
 	}
 	if (popup) {
 		popup.addEventListener("click", (e) => {
 			if (!e.target.closest(".popup-content")) {
-				closePopup(e);
+				closePopupMsg(e);
 			}
 		});
 
 		document.addEventListener("keydown", (e) => {
 			if (e.which === 27) {
 				popup.classList.remove("open");
-				document.querySelector("body").classList.remove("lock");
 			}
 		});
 	}
 
-	function closePopup(e) {
+	function closePopupMsg(e) {
 		e.target.closest(".open").classList.remove("open");
-		document.querySelector("body").classList.remove("lock");
 		e.preventDefault();
 	}
+
 	// ------------------- CALLBACK POPUP -----------------------
 	const callbackForm = document.querySelector(".callback-form"),
 		nameClb = document.querySelector(".callback-form #name-clb"),
@@ -411,11 +410,26 @@ window.addEventListener("load", function () {
 		e.preventDefault();
 	}
 
-	// ------- close callback pop up --------
+	// -------------------- FEEDBACK CALLBACK POP ---------------
+	const btnFdbOpen = document.querySelector(".btn-feedbackpop"),
+		popupFdb = document.querySelector(".feedbackpop"),
+		btnFdbClose = document.querySelector(".feedbackpop-close");
+
+	if (btnFdbOpen) {
+		btnFdbOpen.addEventListener("click", openFdbForm);
+	}
+
+	function openFdbForm(e) {
+		popupFdb.classList.add("open");
+		document.querySelector("body").classList.add("lock");
+		e.preventDefault();
+	}
+
+	// ------- close callback and feedback pop up --------
 	if (popupClb) {
 		popupClb.addEventListener("click", (e) => {
 			if (!e.target.closest(".callbackpop-content")) {
-				closePopup(e);
+				closePopupForm(e);
 			}
 		});
 
@@ -426,9 +440,32 @@ window.addEventListener("load", function () {
 			}
 		});
 	}
+	if (popupFdb) {
+		popupFdb.addEventListener("click", (e) => {
+			if (!e.target.closest(".feedbackpop-content")) {
+				closePopupForm(e);
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.which === 27) {
+				popupFdb.classList.remove("open");
+				document.querySelector("body").classList.remove("lock");
+			}
+		});
+	}
 
 	if (btnClbClose) {
-		btnClbClose.addEventListener("click", closePopup);
+		btnClbClose.addEventListener("click", closePopupForm);
+	}
+	if (btnFdbClose) {
+		btnFdbClose.addEventListener("click", closePopupForm);
+	}
+
+	function closePopupForm(e) {
+		e.target.closest(".open").classList.remove("open");
+		document.querySelector("body").classList.remove("lock");
+		e.preventDefault();
 	}
 	// ------ inputs animation ---------------
 	const formAny = document.querySelector(".form");

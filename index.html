@@ -336,16 +336,16 @@
 								<div>
 									<p>+7 (3494) 93-91-08</p>
 
-									<a href="" class="btn btn-callback">ЗАДАТЬ ВОПРОС</a>
+									<a href="" class="btn btn-feedbackpop">ЗАДАТЬ ВОПРОС</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
 
-				<div class="callbackpop">
-					<div class="callbackpop-content">
-						<a href="#" class="callbackpop-close">x</a>
+				<div class="callbackpop formpopup">
+					<div class="callbackpop-content formpopup-content">
+						<a href="#" class="callbackpop-close formpopup-close">x</a>
 						<h3>Перезвоните мне</h3>
 
 						<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -361,6 +361,42 @@
 							</div>
 
 							<button class="btn js-btn-send-clb" disabled>Отправить</button>
+						</form>
+
+						<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+						<p class="policy">
+							"Нажимая на кнопку, вы даете согласие на обработку своих персональных данных и соглашаетесь с
+							<span>политикой конфиденциальности"</span>.
+						</p>
+					</div>
+				</div>
+
+				<div class="feedbackpop formpopup">
+					<div class="feedbackpop-content formpopup-content">
+						<a href="#" class="feedbackpop-close formpopup-close">x</a>
+						<form class="feedback-form form">
+							<div class="form-group">
+								<label for="name">Имя*</label>
+								<input type="text" name="name" id="name" class="text-input" />
+							</div>
+							<div class="form-group">
+								<label for="company">Компания</label>
+								<input type="company" name="company" id="company" class="text-input" />
+							</div>
+							<div class="form-group">
+								<label for="email">E-mail*</label>
+								<input type="email" name="email" id="email" class="text-input" />
+							</div>
+							<div class="form-group">
+								<label for="tel">Телефон</label>
+								<input type="tel" name="tel" id="tel" class="text-input" />
+							</div>
+							<div class="form-group">
+								<label for="message">Сообщение*</label>
+								<textarea name="message" id="message" cols="30" rows="7" class="text-input"></textarea>
+							</div>
+							<div class="kappa"></div>
+							<button class="btn js-btn-send-form" disabled>Отправить</button>
 						</form>
 
 						<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
