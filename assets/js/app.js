@@ -314,26 +314,37 @@ window.addEventListener("load", function () {
 
 		document.addEventListener("keydown", (e) => {
 			if (e.which === 27) {
-				closePopup(e);
+				popup.classList.remove("open");
+				document.querySelector("body").classList.remove("lock");
 			}
 		});
 	}
 
 	function closePopup(e) {
-		popup.classList.remove("open");
+		e.target.closest(".open").classList.remove("open");
+		document.querySelector("body").classList.remove("lock");
 		e.preventDefault();
 	}
 
 	// ------ inputs animation ---------------
+	const formAny = document.querySelector(".form");
 
-	if (feedbackForm) {
-		let inputs = document.querySelectorAll(".feedback-form .text-input");
+	if (formAny) {
+		let inputs = document.querySelectorAll(".text-input");
 
 		inputs.forEach(function (input) {
 			input.addEventListener("focus", toggleActiveFormGroup);
 			input.addEventListener("blur", toggleActiveFormGroup);
 		});
 	}
+	// if (feedbackForm) {
+	// 	let inputs = document.querySelectorAll(".feedback-form .text-input");
+
+	// 	inputs.forEach(function (input) {
+	// 		input.addEventListener("focus", toggleActiveFormGroup);
+	// 		input.addEventListener("blur", toggleActiveFormGroup);
+	// 	});
+	// }
 
 	function toggleActiveFormGroup(e) {
 		e.target.parentNode.classList.toggle("input-active");
@@ -368,13 +379,81 @@ window.addEventListener("load", function () {
 		itemsOffer.forEach((item) => item.addEventListener("click", openItem));
 	}
 
+	// ver 01
+	// function openItem(e) {
+	// 	const parent = e.target.closest(".offers-item");
+	// 	if (!parent.classList.contains("open")) {
+	// 		itemsOffer.forEach((item) => {
+	// 			item.classList.remove("open");
+	// 		});
+	// 	}
+	// 	parent.classList.toggle("open");
+	// }
+
+	// ver 02
 	function openItem(e) {
-		const parent = e.target.closest(".offers-item");
+		const offersBody = Array.from(document.querySelectorAll(".offers-body")),
+			parent = e.target.closest(".offers-item"),
+			childs = Array.from(parent.children);
+
 		if (!parent.classList.contains("open")) {
 			itemsOffer.forEach((item) => {
 				item.classList.remove("open");
 			});
+			offersBody.forEach((offer) => {
+				offer.style.maxHeight = "0px";
+			});
+
+			childs.forEach((child) => {
+				if (child.classList.contains("offers-body")) {
+					child.style.maxHeight = child.scrollHeight + "px";
+				}
+			});
+		} else {
+			childs.forEach((child) => {
+				if (child.classList.contains("offers-body")) {
+					child.style.maxHeight = "0px";
+				}
+			});
 		}
+
 		parent.classList.toggle("open");
+	}
+
+	// ------------------- CALLBACK POPUP -----------------------
+	const btnsClbOpen = document.querySelectorAll(".btn-callback"),
+		btnClbClose = document.querySelector(".callbackpop-close"),
+		popupClb = document.querySelector(".callbackpop");
+
+	if (btnsClbOpen) {
+		btnsClbOpen.forEach((btn) => {
+			btn.addEventListener("click", openClbForm);
+		});
+	}
+
+	function openClbForm(e) {
+		popupClb.classList.add("open");
+		document.querySelector("body").classList.add("lock");
+		e.preventDefault();
+	}
+
+	// ------- close callback pop up --------
+	if (popupClb) {
+		popupClb.addEventListener("click", (e) => {
+			if (!e.target.closest(".callbackpop-content")) {
+				closePopup(e);
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.which === 27) {
+				popupClb.classList.remove("open");
+				document.querySelector("body").classList.remove("lock");
+			}
+		});
+	}
+
+	if (btnClbClose) {
+		btnClbClose.addEventListener("click", closePopup);
 	}
 });
