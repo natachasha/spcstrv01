@@ -205,6 +205,16 @@ window.addEventListener("load", function () {
 		}
 		e.preventDefault();
 	}
+	function sendClbForm(e) {
+		popupMsg.innerHTML = "";
+
+		if (isClbFormValid()) {
+			showPopupMsg("Your message was successfully sent!");
+			callbackForm.reset();
+			btnClbSend.setAttribute("disabled", "disabled");
+		}
+		e.preventDefault();
+	}
 
 	function showPopupMsg(msg) {
 		let msgText = document.createTextNode(msg);
@@ -214,13 +224,14 @@ window.addEventListener("load", function () {
 
 	function checkName(e) {
 		let currentValue = e.target.value,
-			formGroup = e.target.parentNode;
+			formGroup = e.target.parentNode,
+			parent = e.target.closest(".form");
 
 		if (!isNameValid(currentValue)) {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Name is too short");
+			showAlert(formGroup, "alert", "Name is too short", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
@@ -229,13 +240,31 @@ window.addEventListener("load", function () {
 
 	function checkEmail(e) {
 		let currentValue = e.target.value,
-			formGroup = e.target.parentNode;
+			formGroup = e.target.parentNode,
+			parent = e.target.closest(".form");
 
 		if (!isEmailValid(currentValue)) {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Please enter valid email");
+			showAlert(formGroup, "alert", "Please enter valid email", parent);
+		} else {
+			formGroup.classList.remove("error");
+			clearAlert(formGroup, "alert");
+		}
+	}
+
+	function checkTel(e) {
+		let currentValue = e.target.value.trim(),
+			formGroup = e.target.parentNode,
+			parent = e.target.closest(".form");
+		console.log(currentValue);
+
+		if (!isTelValid(currentValue)) {
+			formGroup.classList.add("error");
+
+			clearAlert(formGroup, "alert");
+			showAlert(formGroup, "alert", "Please enter valid phone number", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
@@ -244,23 +273,33 @@ window.addEventListener("load", function () {
 
 	function checkMessage(e) {
 		let currentValue = e.target.value,
-			formGroup = e.target.parentNode;
+			formGroup = e.target.parentNode,
+			parent = e.target.closest(".form");
 
 		if (!isMessageValid(currentValue)) {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Message is too short");
+			showAlert(formGroup, "alert", "Message is too short", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
 		}
 	}
+
 	function checkForm(e) {
 		if (isFormValid()) {
 			btnSend.removeAttribute("disabled");
 		} else {
 			btnSend.setAttribute("disabled", "disabled");
+		}
+	}
+
+	function checkClbForm(e) {
+		if (isClbFormValid()) {
+			btnClbSend.removeAttribute("disabled");
+		} else {
+			btnClbSend.setAttribute("disabled", "disabled");
 		}
 	}
 
@@ -276,10 +315,22 @@ window.addEventListener("load", function () {
 		if (inputValue.trim().length >= 10) return true;
 		return false;
 	}
+	function isTelValid(inputValue) {
+		if (regExTel.test(inputValue)) return true;
+		return false;
+	}
+
 	function isFormValid() {
 		if (!isNameValid(name.value)) return false;
 		if (!isEmailValid(email.value)) return false;
 		if (!isMessageValid(message.value)) return false;
+		return true;
+	}
+
+	function isClbFormValid() {
+		if (!isNameValid(nameClb.value)) return false;
+		if (!isTelValid(telClb.value)) return false;
+
 		return true;
 	}
 
@@ -288,14 +339,14 @@ window.addEventListener("load", function () {
 			el.nextElementSibling.remove();
 		}
 	}
-	function showAlert(el, className, msg) {
+	function showAlert(el, className, msg, parent) {
 		// create
 		let div = document.createElement("div");
 		div.appendChild(document.createTextNode(msg));
 		div.classList.add(className);
 
 		// insert
-		feedbackForm.insertBefore(div, el.nextElementSibling);
+		parent.insertBefore(div, el.nextElementSibling);
 	}
 
 	// ------- close pop up --------
@@ -325,7 +376,60 @@ window.addEventListener("load", function () {
 		document.querySelector("body").classList.remove("lock");
 		e.preventDefault();
 	}
+	// ------------------- CALLBACK POPUP -----------------------
+	const callbackForm = document.querySelector(".callback-form"),
+		nameClb = document.querySelector(".callback-form #name-clb"),
+		telClb = document.querySelector(".callback-form #tel-clb"),
+		btnsClbOpen = document.querySelectorAll(".btn-callback"),
+		btnClbClose = document.querySelector(".callbackpop-close"),
+		btnClbSend = document.querySelector(".js-btn-send-clb"),
+		regExTel = /([0-9\+\-\(\)\ ])/,
+		popupClb = document.querySelector(".callbackpop");
 
+	if (nameClb) {
+		nameClb.addEventListener("input", checkName);
+	}
+	if (telClb) {
+		telClb.addEventListener("input", checkTel);
+	}
+	if (callbackForm) {
+		callbackForm.addEventListener("input", checkClbForm);
+	}
+	if (btnClbSend) {
+		btnClbSend.addEventListener("click", sendClbForm);
+	}
+
+	if (btnsClbOpen) {
+		btnsClbOpen.forEach((btn) => {
+			btn.addEventListener("click", openClbForm);
+		});
+	}
+
+	function openClbForm(e) {
+		popupClb.classList.add("open");
+		document.querySelector("body").classList.add("lock");
+		e.preventDefault();
+	}
+
+	// ------- close callback pop up --------
+	if (popupClb) {
+		popupClb.addEventListener("click", (e) => {
+			if (!e.target.closest(".callbackpop-content")) {
+				closePopup(e);
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.which === 27) {
+				popupClb.classList.remove("open");
+				document.querySelector("body").classList.remove("lock");
+			}
+		});
+	}
+
+	if (btnClbClose) {
+		btnClbClose.addEventListener("click", closePopup);
+	}
 	// ------ inputs animation ---------------
 	const formAny = document.querySelector(".form");
 
@@ -418,42 +522,5 @@ window.addEventListener("load", function () {
 		}
 
 		parent.classList.toggle("open");
-	}
-
-	// ------------------- CALLBACK POPUP -----------------------
-	const btnsClbOpen = document.querySelectorAll(".btn-callback"),
-		btnClbClose = document.querySelector(".callbackpop-close"),
-		popupClb = document.querySelector(".callbackpop");
-
-	if (btnsClbOpen) {
-		btnsClbOpen.forEach((btn) => {
-			btn.addEventListener("click", openClbForm);
-		});
-	}
-
-	function openClbForm(e) {
-		popupClb.classList.add("open");
-		document.querySelector("body").classList.add("lock");
-		e.preventDefault();
-	}
-
-	// ------- close callback pop up --------
-	if (popupClb) {
-		popupClb.addEventListener("click", (e) => {
-			if (!e.target.closest(".callbackpop-content")) {
-				closePopup(e);
-			}
-		});
-
-		document.addEventListener("keydown", (e) => {
-			if (e.which === 27) {
-				popupClb.classList.remove("open");
-				document.querySelector("body").classList.remove("lock");
-			}
-		});
-	}
-
-	if (btnClbClose) {
-		btnClbClose.addEventListener("click", closePopup);
 	}
 });

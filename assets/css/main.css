@@ -174,8 +174,12 @@ a {
 
 .header-top .content a {
   color: inherit;
-  font-weight: bold;
   text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-top .content a:hover {
+  color: #cfcdcd;
 }
 
 .header-top .content .callback {
@@ -837,14 +841,13 @@ a {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
   opacity: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease-in-out;
 }
 
@@ -1082,7 +1085,7 @@ a {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 20;
   display: flex;
   justify-content: center;
   align-items: center;

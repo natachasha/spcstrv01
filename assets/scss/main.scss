@@ -189,8 +189,13 @@ a {
 
 			a {
 				color: inherit;
-				font-weight: bold;
+				// font-weight: bold;
 				text-transform: uppercase;
+				@include transition-default();
+				&:hover {
+					color: $greyfont-color;
+					// opacity: 0.9;
+				}
 			}
 
 			.callback {
@@ -898,15 +903,27 @@ a {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(5px);
-
+	// backdrop-filter: blur(5px);
 	z-index: 10;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	visibility: hidden;
 	opacity: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+
+	// &:before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	height: 100%;
+	// 	width: 100%;
+	// 	background-image: url("../img/vacancy-bg.jpg");
+	// 	filter: blur(4px);
+
+	// }
+
 	@include transition-default();
 	&.open {
 		visibility: visible;
@@ -1259,7 +1276,7 @@ a {
 	height: 100%;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 1;
+	z-index: 20;
 	display: flex;
 	justify-content: center;
 	align-items: center;
