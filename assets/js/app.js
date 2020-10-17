@@ -379,8 +379,8 @@ window.addEventListener("load", function () {
 	const callbackForm = document.querySelector(".callback-form"),
 		nameClb = document.querySelector(".callback-form #name-clb"),
 		telClb = document.querySelector(".callback-form #tel-clb"),
+		btnsFrmsClose = Array.from(document.querySelectorAll(".formpopup-close")),
 		btnsClbOpen = document.querySelectorAll(".btn-callback"),
-		btnClbClose = document.querySelector(".callbackpop-close"),
 		btnClbSend = document.querySelector(".js-btn-send-clb"),
 		regExTel = /([0-9\+\-\(\)\ ])/,
 		popupClb = document.querySelector(".callbackpop");
@@ -398,7 +398,7 @@ window.addEventListener("load", function () {
 		btnClbSend.addEventListener("click", sendClbForm);
 	}
 
-	if (btnsClbOpen) {
+	if (btnsClbOpen.length > 0) {
 		btnsClbOpen.forEach((btn) => {
 			btn.addEventListener("click", openClbForm);
 		});
@@ -412,8 +412,7 @@ window.addEventListener("load", function () {
 
 	// -------------------- FEEDBACK CALLBACK POP ---------------
 	const btnFdbOpen = document.querySelector(".btn-feedbackpop"),
-		popupFdb = document.querySelector(".feedbackpop"),
-		btnFdbClose = document.querySelector(".feedbackpop-close");
+		popupFdb = document.querySelector(".feedbackpop");
 
 	if (btnFdbOpen) {
 		btnFdbOpen.addEventListener("click", openFdbForm);
@@ -426,6 +425,13 @@ window.addEventListener("load", function () {
 	}
 
 	// ------- close callback and feedback pop up --------
+
+	if (btnsFrmsClose.length > 0) {
+		btnsFrmsClose.forEach((btn) => {
+			btn.addEventListener("click", closePopupForm);
+		});
+	}
+
 	if (popupClb) {
 		popupClb.addEventListener("click", (e) => {
 			if (!e.target.closest(".callbackpop-content")) {
@@ -453,13 +459,6 @@ window.addEventListener("load", function () {
 				document.querySelector("body").classList.remove("lock");
 			}
 		});
-	}
-
-	if (btnClbClose) {
-		btnClbClose.addEventListener("click", closePopupForm);
-	}
-	if (btnFdbClose) {
-		btnFdbClose.addEventListener("click", closePopupForm);
 	}
 
 	function closePopupForm(e) {
@@ -516,7 +515,7 @@ window.addEventListener("load", function () {
 	// ------------- 	ACCORDION VACANCY PAGE -------------
 	const itemsOffer = document.querySelectorAll(".offers-item");
 
-	if (itemsOffer) {
+	if (itemsOffer.length > 0) {
 		itemsOffer.forEach((item) => item.addEventListener("click", openItem));
 	}
 
