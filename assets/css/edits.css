@@ -1,5 +1,17 @@
+.hero h1 {
+  margin: 0 0 3% 0;
+}
+
+.hero-list li {
+  margin: 20px 0;
+}
+
 .services {
   padding: 7rem 0;
+}
+
+.services-text {
+  line-height: 1.4;
 }
 
 .projects .title {
@@ -20,6 +32,10 @@
 
 .about .title {
   margin: 0px 0px 5% 0px;
+}
+
+.about p {
+  line-height: 1.4;
 }
 
 .projects-slide .item-text {
@@ -121,6 +137,43 @@
 .partners-slider {
   display: flex;
   justify-content: space-around;
+}
+
+.projects {
+  padding: 0px 0px 4.539% 0px;
+}
+
+.call .container-content {
+  padding: 0 30px;
+}
+
+.footer {
+  padding: 4.532% 0px 75px 0px;
+}
+
+.footer-connection {
+  font-size: 0.875rem;
+}
+
+.connection-policy li {
+  font-size: inherit;
+}
+
+.footer {
+  background: none;
+}
+
+.footer .container-content {
+  background: url(../img/footer-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  max-width: 2560px;
+}
+
+.footer .footer-content {
+  max-width: 1410px;
+  margin: 0 auto;
+  padding: 0 25px;
 }
 
 @media screen and (max-width: 1200px) {

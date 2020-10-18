@@ -116,7 +116,6 @@ window.addEventListener("load", function () {
 	//show menu
 
 	let menuIcon = document.querySelector(".menu-icon");
-	console.log(menuIcon);
 
 	menuIcon.addEventListener("click", showHeaderNavigation);
 	document.querySelector(".menu").addEventListener("click", closeNav);
@@ -199,7 +198,7 @@ window.addEventListener("load", function () {
 		popupMsg.innerHTML = "";
 
 		if (isFormValid()) {
-			showPopupMsg("Your message was successfully sent!");
+			showPopupMsg("Ваше сообщение успешно отправлено!");
 			feedbackForm.reset();
 			btnSend.setAttribute("disabled", "disabled");
 		}
@@ -209,7 +208,7 @@ window.addEventListener("load", function () {
 		popupMsg.innerHTML = "";
 
 		if (isClbFormValid()) {
-			showPopupMsg("Your message was successfully sent!");
+			showPopupMsg("Ваше сообщение успешно отправлено!");
 			callbackForm.reset();
 			btnClbSend.setAttribute("disabled", "disabled");
 		}
@@ -231,7 +230,7 @@ window.addEventListener("load", function () {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Name is too short", parent);
+			showAlert(formGroup, "alert", "Слишком короткое значение поля", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
@@ -247,7 +246,7 @@ window.addEventListener("load", function () {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Please enter valid email", parent);
+			showAlert(formGroup, "alert", "Пожалуйста, введите корректный адрес", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
@@ -263,7 +262,7 @@ window.addEventListener("load", function () {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Please enter valid phone number", parent);
+			showAlert(formGroup, "alert", "Пожалуйста, введите корректный телефон", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
@@ -279,7 +278,7 @@ window.addEventListener("load", function () {
 			formGroup.classList.add("error");
 
 			clearAlert(formGroup, "alert");
-			showAlert(formGroup, "alert", "Message is too short", parent);
+			showAlert(formGroup, "alert", "Слишком короткое сообщение", parent);
 		} else {
 			formGroup.classList.remove("error");
 			clearAlert(formGroup, "alert");
