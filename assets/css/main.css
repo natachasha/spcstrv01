@@ -282,8 +282,8 @@ a {
   /*1366*/
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
-  background-attachment: scroll;
+  background-size: auto auto;
+  background-attachment: fixed;
 }
 
 .hero h1 {
