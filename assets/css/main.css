@@ -878,7 +878,8 @@ a {
 }
 
 .formpopup-content {
-  background-color: #ffffff;
+  margin: auto 0;
+  background-color: red;
   padding: 50px 30px 50px 30px;
   border-radius: 5px;
   width: 95%;

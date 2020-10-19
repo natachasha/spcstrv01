@@ -950,7 +950,9 @@ a {
 		}
 	}
 	&-content {
-		background-color: $light-color;
+		margin: auto 0;
+		// background-color: $light-color;
+		background-color: red;
 		// padding: 2.53% 2.53% 2.53% 2.53%;
 		padding: 50px 30px 50px 30px;
 		border-radius: 5px;
