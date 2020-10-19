@@ -299,8 +299,8 @@ a {
 .hero {
 	// padding: 130px 0px 121px 0px;
 	padding: 9.517% 0px 8.858% 0px; /*1366*/
-	background: url("../img/hero-bg.jpg") no-repeat center center/ cover;
-	background-attachment: fixed;
+	background: url("../img/hero-bg.jpg") no-repeat center center/ cover fixed;
+	// background-attachment: fixed;
 
 	h1 {
 		color: $light-color;
