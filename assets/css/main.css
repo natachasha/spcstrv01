@@ -844,14 +844,14 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   height: 100%;
-  min-height: 100vh;
+  min-height: 0;
   width: 100%;
   padding: 20px 0;
   z-index: 10;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
   align-items: center;
   visibility: hidden;
   opacity: 0;
