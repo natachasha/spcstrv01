@@ -60,9 +60,6 @@ $arimoFont: "Arimo";
 	.container-content {
 		padding: 0 $paddingContainer1100;
 	}
-	.hero {
-		// background-attachment: scroll;
-	}
 
 	.contacts {
 		&-content {
@@ -87,6 +84,11 @@ $arimoFont: "Arimo";
 		&-img {
 			display: none;
 		}
+	}
+}
+@media screen and (max-width: 1100px) {
+	.hero {
+		background-attachment: scroll;
 	}
 }
 @media screen and (max-width: 460px) {
