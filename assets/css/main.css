@@ -280,7 +280,10 @@ a {
 .hero {
   padding: 9.517% 0px 8.858% 0px;
   /*1366*/
-  background: url("../img/hero-bg.jpg") no-repeat center center/cover fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .hero h1 {
@@ -878,7 +881,7 @@ a {
 
 .formpopup-content {
   margin: auto 0;
-  background-color: red;
+  background-color: #ffffff;
   padding: 50px 30px 50px 30px;
   border-radius: 5px;
   width: 95%;
